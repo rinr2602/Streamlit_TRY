@@ -1,18 +1,38 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
+st.set_page_config(layout = 'wide')
 
+st.title('How to configure the layout for your app')
 
-st.title('st.file_uploader')
+with st.expander('About this app:'):
+    st.write('This app shows the various ways on how you can layout your Streamlit app.')
+    st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
 
-st.subheader('Input CSV')
-uploaded_file = st.file_uploader("Choose a file")
+st.sidebar.header('Input')
+username = st.sidebar.text_input('What is your name?')
+useremoji = st.sidebar.selectbox(
+    'What are you feeling?',
+    ['', '😄', '😆', '😊', '😍', '😴', '😕', '😱'])
+userfood = st.sidebar.selectbox(
+    'What do you feel like eating?',
+    ['', 'Tom Yum Kung', 'Burrito', 'Lasagna', 'Hamburger', 'Pizza']
+)    
 
-if uploaded_file is not None:
-  df = pd.read_csv(uploaded_file)
-  st.subheader('DataFrame')
-  st.write(df)
-  st.subheader('Descriptive Statistics')
-  st.write(df.describe())
-else:
-  st.info('☝️ Upload a CSV file')
+st.header('Output')
+
+with col1:
+    if username != '':
+        st.write('Hey, {}'.format(username))
+    else:
+        st.write('Hey, write your name please!')
+
+with col2:
+    if useremoji != '':
+        st.write("Ah, you're feeling {}".format(useremoji))
+    else:
+        st.write("Choose what you're feeling please!")
+
+with col3:
+    if userfood != '':
+        st.write('{} is a nice choice!'.format(userfood))
+    else:
+        st.write("You don't feel like eating anything?")
