@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-st.header('Selection Box')
+st.header('Multiselect')
 
-option = st.selectbox(
-    'What is your fave colour?',
-    ('Blue','Red','Pink')
+options = st.multiselect(
+    'What are your fave colours?',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red']
 )
 
-st.write('You have chosen: ', option)
+st.write('You selected: ', options)
