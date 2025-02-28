@@ -19,6 +19,7 @@ userfood = st.sidebar.selectbox(
 
 st.header('Output')
 
+col1, col2, col3 = st.columns(3)
 with col1:
     if username != '':
         st.write('Hey, {}'.format(username))
