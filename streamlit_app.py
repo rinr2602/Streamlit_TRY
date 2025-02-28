@@ -3,8 +3,16 @@ import pandas as pd
 import numpy as np
 
 
-import streamlit as st
+st.title('st.file_uploader')
 
-st.title('st.secrets')
+st.subheader('Input CSV')
+uploaded_file = st.file_uploader("Choose a file")
 
-st.write(st.secrets['message'])
+if uploaded_file is not None:
+  df = pd.read_csv(uploaded_file)
+  st.subheader('DataFrame')
+  st.write(df)
+  st.subheader('Descriptive Statistics')
+  st.write(df.describe())
+else:
+  st.info('☝️ Upload a CSV file')
