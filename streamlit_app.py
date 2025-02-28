@@ -1,18 +1,14 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from streamlit_pandas_profiling import st_profile_report
 
-st.header('Checkbox')
+st.header('`streamlit_pandas_profiling`')
 
-st.write('What would you like to eat?')
+df = pd.read_csv(
+    'https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv'
+)
 
-food1 = st.checkbox('Ice Cream')
-food2 = st.checkbox('Coffee')
-food3 = st.checkbox('Cola')
+pr = df.profile_report()
 
-if food1:
-    st.write('You chose ice cream')
-elif food2:
-    st.write('You chose Coffee')
-elif food3:
-    st.write('You chose Cola')
+st_profile_report(pr)
