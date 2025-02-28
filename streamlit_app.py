@@ -31,7 +31,7 @@ with col2:
     if useremoji != '':
         st.write("Ah, you're feeling {}".format(useremoji))
     else:
-        st.write("Choose what youre feeling, dont be that 'emotions are for the weak dude'!")
+        st.write("Choose what youre feeling, dont be that 'emotions are for the weak alpha sigma chad type'")
 
 with col3:
     if userfood != '':
