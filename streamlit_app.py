@@ -38,3 +38,5 @@ with col3:
         st.write('{}, uh. prime big back activities'.format(userfood))
     else:
         st.write("Stop lying about your big back-ness")
+
+st.write('in case you didnt figure it out, there is an arrow on the top left')
